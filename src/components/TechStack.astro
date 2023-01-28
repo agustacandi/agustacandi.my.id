@@ -1,0 +1,31 @@
+---
+import Title from "./Title.astro";
+import Icon from "astro-icon";
+---
+
+<div
+  class="md:w-3/12 h-max border-2 border-nord-polar-4 shadow-sharp p-4 sticky top-28 bg-white mt-5 md:my-0"
+>
+  <Title>Tech Stack</Title>
+  <a
+    href="https://developer.mozilla.org/en-US/docs/Web/HTML"
+    class="flex space-x-3 p-3 shadow-sharp border-2 border-nord-polar-4 bg-nord-snow-3 mt-3"
+  >
+    <Icon name="vscode-icons:file-type-html" class="w-6 h-6" />
+    <p>HTML 5</p>
+  </a>
+  <a
+    href="https://developer.mozilla.org/en-US/docs/Web/CSS"
+    class="flex space-x-3 p-3 shadow-sharp border-2 border-nord-polar-4 bg-nord-snow-3 mt-3"
+  >
+    <Icon name="vscode-icons:file-type-css" class="w-6 h-6" />
+    <p>CSS 3</p>
+  </a>
+  <a
+    href="https://developer.mozilla.org/en-US/docs/Web/javascript"
+    class="flex space-x-3 p-3 shadow-sharp border-2 border-nord-polar-4 bg-nord-snow-3 mt-3"
+  >
+    <Icon name="vscode-icons:file-type-js-official" class="w-6 h-6" />
+    <p>JavaScript</p>
+  </a>
+</div>

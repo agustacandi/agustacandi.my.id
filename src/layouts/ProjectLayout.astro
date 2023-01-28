@@ -1,0 +1,70 @@
+---
+import MainLayout from "./MainLayout.astro";
+import { Image } from "@astrojs/image/components";
+import Icon from "astro-icon";
+import Title from "../components/Title.astro";
+const { title, img_url, tech } = Astro.props;
+type TechStack = {
+  url: string;
+  name: string;
+  icon: string;
+};
+---
+
+<MainLayout title={title}>
+  <section class="mt-10 flex flex-col md:flex-row md:space-x-5">
+    <div class="md:w-9/12">
+      <Image
+        width={1280}
+        height={720}
+        class="shadow-sharp border-2 border-nord-polar-4"
+        src={img_url}
+        alt={`${title} Image`}
+      />
+      <h1 class="text-2xl font-bold my-5">{title}</h1>
+      <slot />
+      <div id="disqus_thread" class="mt-5"></div>
+    </div>
+    <div
+      class="md:w-3/12 h-max border-2 border-nord-polar-4 shadow-sharp p-4 sticky top-28 bg-white mt-5 md:my-0"
+    >
+      <Title>Tech Stack</Title>
+      {
+        tech.map((item: TechStack) => (
+          <a
+            href={item.url}
+            class="flex space-x-3 p-3 shadow-sharp border-2 border-nord-polar-4 bg-nord-snow-3 mt-3"
+          >
+            <Icon name={item.icon} class="w-6 h-6" />
+            <p>{item.name}</p>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+</MainLayout>
+
+<script>
+  /**
+   *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+   *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+
+  let disqus_config: any = function (this: typeof disqus_config) {
+    this.page.url = Astro.url.pathname; // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = Astro.url.pathname; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+  };
+
+  (function () {
+    // DON'T EDIT BELOW THIS LINE
+    let d = document,
+      s = d.createElement("script");
+    s.src = "https://agustacandi.disqus.com/embed.js";
+    s.setAttribute("data-timestamp", new Date().toDateString());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+<noscript
+  >Please enable JavaScript to view the <a
+    href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a
+  ></noscript
+>

@@ -1,0 +1,24 @@
+---
+import Footer from "../components/Footer.astro";
+import Navbar from "../components/Navbar.astro";
+
+import "@fontsource/jetbrains-mono";
+
+const { title } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Agustacandi - {title}</title>
+  </head>
+  <body class="text-nord-polar-4">
+    <main class="container mx-auto bg-white py-5 px-5 md:px-36">
+      <Navbar />
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

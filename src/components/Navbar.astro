@@ -1,0 +1,77 @@
+---
+import Icon from "astro-icon";
+
+type Route = {
+  name: string;
+  href: string;
+};
+
+const routes: Route[] = [
+  {
+    name: "Home",
+    href: "/",
+  },
+  {
+    name: "Projects",
+    href: "/projects",
+  },
+  {
+    name: "About",
+    href: "/about",
+  },
+];
+---
+
+<nav
+  class="w-full h-16 border-2 border-nord-polar-4 shadow-sharp px-3 sticky top-5 bg-white grid items-center"
+>
+  <div class="flex justify-between">
+    <a href="/" class="hidden md:flex font-mono"><h1 class="element"></h1></a>
+    <ul class="flex md:space-x-5 justify-evenly items-center w-full md:w-auto">
+      {
+        routes.map((route) => {
+          return (
+            <li>
+              <a
+                href={route.href}
+                class={`flex items-center space-x-1 hover:text-blue-500 ${
+                  Astro.url.pathname == route.href ? "text-blue-500" : ""
+                }`}
+              >
+                {route.name === "Home" ? (
+                  <Icon
+                    name="ic:baseline-home"
+                    class="w-7 h-7 md:w-5 md:h-5 "
+                  />
+                ) : route.name === "Projects" ? (
+                  <Icon
+                    name="ic:baseline-catching-pokemon"
+                    class="w-7 h-7 md:w-5 md:h-5 "
+                  />
+                ) : (
+                  <Icon
+                    name="ic:baseline-account-circle"
+                    class="w-7 h-7 md:w-5 md:h-5 "
+                  />
+                )}
+                <p class={`hidden md:block`}>{route.name}</p>
+              </a>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </div>
+</nav>
+
+<script>
+  import Typed from "typed.js";
+
+  const options = {
+    strings: ["agustacandi@astro:#~"],
+    typeSpeed: 50,
+    backSpeed: 50,
+  };
+
+  var typed = new Typed(".element", options);
+</script>

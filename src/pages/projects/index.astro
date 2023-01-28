@@ -1,0 +1,33 @@
+---
+import Button from "../../components/Button.astro";
+import Card from "../../components/Card.astro";
+import MainLayout from "../../layouts/MainLayout.astro";
+import projects from "../../data/projects";
+import Title from "../../components/Title.astro";
+---
+
+<MainLayout title="Projects">
+  <section class="mt-10">
+    <Title center={true}>All Projects</Title>
+    <form class="flex flex-col md:flex-row md:space-x-5 items-center mt-5">
+      <input
+        type="text"
+        class="border-2 border-nord-polar-4 shadow-sharp w-full md:w-9/12 p-3 focus:outline-none focus:shadow-less transition-all duration-150"
+        placeholder="Search for a project..."
+      />
+      <Button type="submit" class="mt-5 mb:mt-0">Search</Button>
+    </form>
+  </section>
+  <section class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-8">
+    {
+      projects.map((project) => (
+        <Card
+          url={project.url}
+          title={project.title}
+          description={project.description}
+          img_url={project.img_url}
+        />
+      ))
+    }
+  </section>
+</MainLayout>

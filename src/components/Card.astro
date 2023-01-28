@@ -1,0 +1,30 @@
+---
+import Divider from "./Divider.astro";
+
+const { url, title, description, img_url } = Astro.props;
+
+let textSliced: string;
+
+if (description.length > 100) {
+  textSliced = description.slice(0, 100) + "...";
+} else {
+  textSliced = description;
+}
+---
+
+<a
+  href={url}
+  class="h-96 block shadow-sharp border-2 border-nord-polar-4 hover:shadow-less"
+>
+  <img
+    src={img_url}
+    alt="Card Image"
+    class="w-full h-48 object-cover border-b-2 border-nord-polar-4"
+  />
+  <div class="p-4">
+    <h2 class="text-lg font-bold">{title}</h2>
+    <p class="text-nord-polar-3">
+      {textSliced}
+    </p>
+  </div>
+</a>

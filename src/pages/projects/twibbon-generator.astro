@@ -1,0 +1,54 @@
+---
+import ProjectLayout from "../../layouts/ProjectLayout.astro";
+type TechStack = {
+  url: string;
+  name: string;
+  icon: string;
+};
+
+const techStack: TechStack[] = [
+  {
+    url: "https://developer.mozilla.org/en-US/docs/Web/HTML",
+    name: "HTML 5",
+    icon: "vscode-icons:file-type-html",
+  },
+  {
+    url: "https://developer.mozilla.org/en-US/docs/Web/CSS",
+    name: "CSS 3",
+    icon: "vscode-icons:file-type-css",
+  },
+  {
+    url: "https://developer.mozilla.org/en-US/docs/Web/javascript",
+    name: "JavaScript",
+    icon: "vscode-icons:file-type-js-official",
+  },
+];
+---
+
+<ProjectLayout
+  title="Twibbon Generator"
+  img_url="https://wallpapercave.com/wp/wp6140286.jpg"
+  tech={techStack}
+>
+  <p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint eligendi qui
+    quo est, saepe cumque, ea obcaecati quasi aliquam ipsam fugiat nostrum quae!
+    Eum molestiae in, pariatur necessitatibus dolore aperiam? Labore architecto
+    nihil, rerum dolores odit quas non, atque est ea explicabo iure rem vel?
+    Laudantium voluptatem ipsam unde deserunt.
+  </p>
+  <p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint eligendi qui
+    quo est, saepe cumque, ea obcaecati quasi aliquam ipsam fugiat nostrum quae!
+    Eum molestiae in, pariatur necessitatibus dolore aperiam? Labore architecto
+    nihil, rerum dolores odit quas non, atque est ea explicabo iure rem vel?
+    Laudantium voluptatem ipsam unde deserunt.
+  </p>
+  <p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint eligendi qui
+    quo est, saepe cumque, ea obcaecati quasi aliquam ipsam fugiat nostrum quae!
+    Eum molestiae in, pariatur necessitatibus dolore aperiam? Labore architecto
+    nihil, rerum dolores odit quas non, atque est ea explicabo iure rem vel?
+    Laudantium voluptatem ipsam unde deserunt.
+  </p>
+</ProjectLayout>
