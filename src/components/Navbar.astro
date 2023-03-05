@@ -13,11 +13,11 @@ const routes: Route[] = [
   },
   {
     name: "Projects",
-    href: "/projects",
+    href: "/projects/",
   },
   {
     name: "About",
-    href: "/about",
+    href: "/about/",
   },
 ];
 ---
@@ -35,7 +35,7 @@ const routes: Route[] = [
               <a
                 href={route.href}
                 class={`flex items-center space-x-1 hover:text-blue-500 ${
-                  Astro.url.pathname == route.href ? "text-blue-500" : ""
+                  Astro.url.pathname === route.href ? "text-blue-500" : ""
                 }`}
               >
                 {route.name === "Home" ? (
